@@ -12,6 +12,9 @@ import uuid
 
 app = FastAPI()
 
+# ✅ Make sure outputs folder exists before mounting
+os.makedirs("outputs", exist_ok=True)
+
 # Serve images from the 'outputs' directory
 app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
 
